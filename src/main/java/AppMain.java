@@ -3,5 +3,6 @@ public class AppMain {
         System.out.println("Hello world!");
         System.out.println("Hello world!");
         System.out.println("Hello world!");
+        System.out.println("My First Commit");
     }
 }
