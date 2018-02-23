@@ -16,10 +16,11 @@ public class MockUserDAO {
     }
 
     public User getByLoginAndPassword(final String loginName, final String password) {
-        return userRepository
-                .stream()
-                .filter(user -> user.getLogin().equals(loginName) && user.getPassword().equals(password))
-                .findFirst()
-                .orElse(null);
+        for (User user : userRepository) {
+            if (user.getLogin().equals(loginName) && user.getPassword().equals(password)) {
+                return user;
+            }
+        }
+        return null;
     }
 }

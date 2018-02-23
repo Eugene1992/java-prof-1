@@ -17,5 +17,6 @@
     <input type="submit" value="login">
 </form>
 <p style="color: red;">${errMsg}</p>
+<p style="color: red;"><% request.getAttribute("errMsg"); %></p>
 </body>
 </html>
