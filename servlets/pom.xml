@@ -14,6 +14,7 @@
     <modules>
         <module>context-config</module>
         <module>filter-security</module>
+        <module>cookie</module>
     </modules>
 
 </project>
