@@ -22,6 +22,40 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>FirstSetvlet</servlet-name>
+        <servlet-class>com.cbs.edu.servlets.config_context.FirstServlet</servlet-class>
+        <init-param>
+            <param-name>servletCongigParamName</param-name>
+            <param-value>servletCongigParamValue</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FirstSetvlet</servlet-name>
+        <url-pattern>/s1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SecondServlet</servlet-name>
+        <servlet-class>com.cbs.edu.servlets.config_context.SecondServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SecondServlet</servlet-name>
+        <url-pattern>/s2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CoockieServlet</servlet-name>
+        <servlet-class>com.cbs.edu.servlets.config_context.CoockieServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CoockieServlet</servlet-name>
+        <url-pattern>/coockie</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>JspServlet</servlet-name>
         <servlet-class>com.cbs.edu.servlets.HelloJSPServlet</servlet-class>
     </servlet>
@@ -30,4 +64,18 @@
         <servlet-name>JspServlet</servlet-name>
         <url-pattern>/hello/jsp</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>secret</param-name>
+        <param-value>1a34c2b0</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>com.cbs.edu.servlets.config_context.MyAppServletContextListener</listener-class>
+    </listener>
+
+    <listener>
+        <description>Servlet Context Attribute Listener Example</description>
+        <listener-class>com.cbs.edu.servlets.config_context.MyServletContextAttributeListener</listener-class>
+    </listener>
 </web-app>

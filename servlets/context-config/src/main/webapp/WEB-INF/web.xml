@@ -11,6 +11,11 @@
         based on the recommendations of the Application Developer's Guide.
     </description>
 
+    <context-param>
+        <param-name>secret</param-name>
+        <param-value>1a34c2b0</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>com.cbs.edu.servlets.HelloServlet</servlet-class>
