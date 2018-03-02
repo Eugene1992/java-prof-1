@@ -1,6 +1,10 @@
-package crud.servlet.hibernate.dao;
+package crud.servlet.hibernate.servlets;
 
+import crud.servlet.hibernate.dao.EmployeeDAO;
 import crud.servlet.hibernate.entity.Employee;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -12,15 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServletClass extends HttpServlet {
-    private List<Employee> employeeList;
+    private EmployeeDAO employee;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        employeeList = new ArrayList<>();
-        employeeList.add(new Employee(1,"Tina","Terner","tina","tina",80, 5000,false));
-        employeeList.add(new Employee(2,"Tom","Hardy","tom","tom",40, 15000,true));
-        employeeList.add(new Employee(3,"Brad","Pitt","pit","pit",52, 25000,false));
+        new EmployeeDAO();
+
     }
+
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
