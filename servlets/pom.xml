@@ -15,6 +15,7 @@
         <module>context-config</module>
         <module>filter-security</module>
         <module>cookie</module>
+        <module>servlet-3_0</module>
     </modules>
 
     <build>
