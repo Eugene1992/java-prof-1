@@ -5,7 +5,22 @@
     <title>CRUD</title>
 </head>
 <body>
-<h1>Employees</h1>>
+<h1>Employees</h1>
+
+
+<div class="styleform">
+<form action="/employee.jsp/" method="post">
+    <label>Lastname:</label><input type="text" name="lastname"><div class="clear"></div><br>
+    <label>Firstname:</label><input type="text" name="firstname"><div class="clear"></div><br>
+    <label>Login:</label><input type="text" name="login"><div class="clear"></div><br>
+    <label>Password:</label><input type="password" name="password"><div class="clear"></div><br>
+    <label>Age:</label><input type="text" name="age"><div class="clear"></div><br>
+    <label>Salary:</label><input type="text" name="salary"><div class="clear"></div><br>
+    <label>isMarried</label>:<input type="text" name="isMarried"><div class="clear"></div><br>
+    <button type="submit">Register</button>
+
+</form>
+</div>
 <table border = "1">
     <tr>
         <th>Lastname</th>
