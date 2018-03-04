@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+
+       default-init-method="turnOnLights"
+       default-destroy-method="turnOffLights">
+
+    <bean id="auditorium"
+          class="com.cbs.edu.spring_idol.bean_init_destroy.Auditorium"
+          init-method="turnOnLights"
+          destroy-method="turnOffLights"
+    />
+
+    <bean id="defaultAuditorium"
+          class="com.cbs.edu.spring_idol.bean_init_destroy.DefaultAuditorium"
+    />
+</beans>

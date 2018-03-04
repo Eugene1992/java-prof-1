@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="duke" class="com.cbs.edu.spring_idol.Juggler" />--> <!-- used default(non-arg) constructor -->
+    <bean id="duke" class="com.cbs.edu.spring_idol.Juggler" >         <!-- used arg constructor -> Juggler(int beanBags) -->
+        <constructor-arg value="15"/>
+    </bean>
+
+    <bean id="sonnet29" class="com.cbs.edu.spring_idol.Sonnet29" />
+
+    <bean id="poeticDuke" class="com.cbs.edu.spring_idol.PoeticJuggler">
+        <constructor-arg value="15" />
+        <constructor-arg ref="sonnet29" />
+    </bean>
+</beans>

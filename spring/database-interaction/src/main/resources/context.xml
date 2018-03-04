@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://ec2-54-75-231-195.eu-west-1.compute.amazonaws.com:5432/dhbactqe5p1j4"/>
+        <property name="username" value="afovdtnoicigvz"/>
+        <property name="password" value="5d5cd98f00a9ce156162338ce60ca00936f0b79df74e9a672a93bcfe776f935a"/>
+<!--        <util:invoke method="addConnectionProperty">
+            <value>ssl</value>
+            <value>true</value>
+        </util:invoke>
+        <util:invoke method="addConnectionProperty">
+            <value>sslfactory</value>
+            <value>org.postgresql.ssl.NonValidatingFactory"</value>
+        </util:invoke>-->
+
+    </bean>
+
+   <bean class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" id="jdbcTemplate">
+      <constructor-arg type="javax.sql.DataSource" ref="dataSource"/>
+   </bean>
+
+    <bean id="employeeDao" class="com.cbs.java.database_interaction.dao.EmployeeDaoImpl">
+        <constructor-arg ref="jdbcTemplate" />
+    </bean>
+</beans>

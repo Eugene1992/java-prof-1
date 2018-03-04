@@ -16,6 +16,8 @@
         <module>hello-world-xml</module>
         <module>hello-world-annotations</module>
         <module>component-scan</module>
+        <module>spring-idol</module>
+        <module>database-interaction</module>
     </modules>
 
     <dependencies>

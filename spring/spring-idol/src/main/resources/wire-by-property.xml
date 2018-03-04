@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+
+    <bean id="kenny" class="com.cbs.edu.spring_idol.wire_by_property.Instrumentalist">
+        <property name="song" value="Jingle Bells" />
+        <property name="instrument" ref="saxophone" />
+    </bean>
+
+    <bean id="saxophone" class="com.cbs.edu.spring_idol.wire_by_property.Saxophone" />
+
+    <!--<bean id="kenny" class="com.cbs.edu.spring_idol.wire_by_property.Instrumentalist"
+          p:song = "Jingle Bells"
+          p:instrument-ref = "saxophone"
+    />-->
+
+    <!-- inner component wiring -->
+    <!--<bean id="kenny" class="com.cbs.edu.spring_idol.wire_by_property.Instrumentalist">
+        <property name="song" value="Jingle Bells" />
+        <property name="instrument">
+            <bean class="com.cbs.edu.spring_idol.wire_by_property.Saxophone" />
+        </property>
+    </bean>-->
+</beans>
