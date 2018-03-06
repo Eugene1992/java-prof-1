@@ -1,12 +1,10 @@
-package com.cbs.java.database_interaction.dao;
+package com.cbs.edu.spring_web_app.dao;
 
-import com.cbs.java.database_interaction.entity.Employee;
-import org.springframework.dao.DataAccessException;
+import com.cbs.edu.spring_web_app.entity.Employee;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

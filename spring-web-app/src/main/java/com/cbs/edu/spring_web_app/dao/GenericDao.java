@@ -1,4 +1,4 @@
-package com.cbs.java.database_interaction.dao;
+package com.cbs.edu.spring_web_app.dao;
 
 import java.util.List;
 
