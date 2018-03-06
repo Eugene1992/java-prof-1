@@ -17,8 +17,6 @@
         <module>svshp</module>
         <module>ushako21</module>
         <module>vladvyazov</module>
-        <module>servlet-examples</module>
-        <module>servlets-3</module>
         <module>junit</module>
         <module>spring</module>
     </modules>
