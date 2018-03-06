@@ -26,6 +26,12 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.2.6.Final</version>
         </dependency>
+        <dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.3.12.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
