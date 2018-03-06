@@ -18,6 +18,7 @@ public class Employee extends AbstractEmployee {
         this.age = age;
         this.salary = salary;
     }
+
 }
 
 

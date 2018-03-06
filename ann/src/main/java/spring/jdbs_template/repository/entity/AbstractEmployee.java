@@ -6,5 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public abstract class AbstractEmployee {
-    private Integer id; //почему мы тут использовали класс обертку, а не приметивный int?
+    protected Integer id; //почему мы тут использовали класс обертку, а не приметивный int?
+
 }
