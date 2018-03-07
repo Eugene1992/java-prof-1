@@ -5,8 +5,16 @@
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://wlnlgfhsqounqi/ec2-54-75-244-248.eu-west-1.compute.amazonaws.com:5432/d97hhdkb3s8q8f"/>
+        <property name="url" value="jdbc:postgresql://ec2-54-75-244-248.eu-west-1.compute.amazonaws.com:5432/d97hhdkb3s8q8f"/>
         <property name="username" value="wlnlgfhsqounqi"/>
         <property name="password" value="baa043b6b355462bb5951e0518f593b18cb24235b4bf777ae02ab2e50b37da26"/>
+    </bean>
+
+    <bean class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" id="jdbcTemplate">
+        <constructor-arg type="javax.sql.DataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="employeeDao" class="spring.jdbs_template.repository.dao.ImplIEmployeeDao">
+        <constructor-arg ref="jdbcTemplate" />
     </bean>
 </beans>
