@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Arrays;
 
 @Controller
 public class HelloController {
@@ -13,5 +16,14 @@ public class HelloController {
     public String hello(@ModelAttribute Employee employee) {
         System.out.println(employee);
         return "hello";
+    }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public ModelAndView hello(ModelAndView modelAndView) {
+        modelAndView.setViewName("hello");
+        modelAndView.addObject("employees", Arrays.asList(
+                new Employee(1, "Yevhenii", "Deineka", 25, 20000)
+        ));
+        return modelAndView;
     }
 }
