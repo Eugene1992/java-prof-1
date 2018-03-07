@@ -13,33 +13,33 @@
     </head>
     <body>
         <div class="container">
-            <div class="row">
+            <div class="row col-lg-8 col-lg-offset-2">
                 <br>
-                <div class="panel panel-primary">
+                <div class="panel panel-primary ">
                     <div class="panel-heading">Employee CRUD</div>
                     <div class="panel-body">
                         <form class="form-horizontal" action="/hello" method="post">
                             <div class="form-group">
-                                <label class="control-label col-lg-2" for="first_name">First name:</label>
-                                <div class="col-lg-8">
+                                <label class="control-label col-lg-2 col-lg-offset-2" for="first_name">First name:</label>
+                                <div class="col-lg-5">
                                     <input type="text" class="form-control" id="first_name" placeholder="Enter first name" name="firstName">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-lg-2" for="last_name">Last name:</label>
-                                <div class="col-lg-8">
+                                <label class="control-label col-lg-2 col-lg-offset-2" for="last_name">Last name:</label>
+                                <div class="col-lg-5">
                                     <input type="text" class="form-control" id="last_name" placeholder="Enter last name" name="lastName">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-lg-2" for="age">Age:</label>
-                                <div class="col-lg-8">
+                                <label class="control-label col-lg-2 col-lg-offset-2" for="age">Age:</label>
+                                <div class="col-lg-5">
                                     <input type="number" class="form-control" id="age" placeholder="Enter age" name="age">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-lg-2" for="salary">Salary:</label>
-                                <div class="col-lg-8">
+                                <label class="control-label col-lg-2 col-lg-offset-2" for="salary">Salary:</label>
+                                <div class="col-lg-5">
                                     <input type="number" class="form-control" id="salary" placeholder="Enter salary" name="salary">
                                 </div>
                             </div>
@@ -49,6 +49,37 @@
                                 </div>
                             </div>
                         </form>
+
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Age</th>
+                                <th>Salary</th>
+                                <th style="width: 5%"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></th>
+                                <th style="width: 5%"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>25</td>
+                                <td>10000</td>
+                                <td>
+                                    <button type="button" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

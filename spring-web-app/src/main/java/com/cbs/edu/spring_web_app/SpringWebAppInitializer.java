@@ -13,7 +13,7 @@ import javax.servlet.ServletRegistration.Dynamic;
 
 public class SpringWebAppInitializer implements WebApplicationInitializer {
 
-    public void onStartup(ServletContext container) throws ServletException {
+    public void onStartup(ServletContext container) {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(AppConfig.class, DatabaseConfig.class, WebMvcConfig.class);
         ctx.setServletContext(container);
