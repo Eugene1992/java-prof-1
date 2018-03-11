@@ -15,7 +15,8 @@ public class SpringWebApp {
         Employee employee = new Employee(10,"I","Iv",15,10_000);
         //employeeDao.upsert(employee);
        // employeeDao.get(10);
-        employeeDao.delete(10);
+       // employeeDao.delete(10);
+        employeeDao.getAll();
        // System.out.println(employee.toString());
     }
 }

@@ -1,24 +1,26 @@
 package spring.jdbs_template.repository.dao;
 
-import org.springframework.jdbc.core.PreparedStatementCallback;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import spring.jdbs_template.repository.entity.Employee;
 
-import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@PropertySource("classpath:sql/sql_queries.properties")
 public class ImplIEmployeeDao implements IEmployeeDao {
     private NamedParameterJdbcTemplate jdbcTemplate;
 
     public ImplIEmployeeDao(NamedParameterJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+    Environment environment;
 
     @Override
     public Employee upsert(Employee employee) {
-        String query = "insert into employee values (:id, :firstname, :lastname, :age, :salary)";
+        String query = environment.getProperty("sql.upsert");
 
         Map<String, Object> map = new HashMap<>();
         map.put("id", employee.getId());
@@ -29,13 +31,13 @@ public class ImplIEmployeeDao implements IEmployeeDao {
 
         jdbcTemplate.update(query,map);
 
-      //  jdbcTemplate.execute(query, map, (PreparedStatementCallback<Object>) PreparedStatement::executeUpdate);
         return  employee;
     }
 
     @Override
     public Employee get(Integer id) {
-        String query="select * from employee where id = :id";
+        String query = environment.getProperty("sql.getById");
+
         Map<String, Object> map = new HashMap<>();
         map.put("id", id);
         Employee employee = jdbcTemplate.queryForObject(query, map, new EmployeeMapper());
@@ -45,7 +47,8 @@ public class ImplIEmployeeDao implements IEmployeeDao {
 
     @Override
     public void delete(Integer id) {
-        String query="delete from employee where id = :id";
+        String query = environment.getProperty("sql.deleteById");
+
         Map<String, Object> map = new HashMap<>();
         map.put("id", id);
         jdbcTemplate.update(query, map);
@@ -53,6 +56,22 @@ public class ImplIEmployeeDao implements IEmployeeDao {
 
     @Override
     public List<Employee> getAll() {
-        return null;
+        String query = "select * from employee";
+
+        List<Employee> employees = jdbcTemplate.query(query, new EmployeeMapper());
+//        for (Map row : rows) {
+//            Employee employee = new Employee();
+//            employee.setId((Integer) (row.get("id")));
+//            employee.setFirstName((String)row.get("firstname"));
+//            employee.setLastName((String)row.get("lastname"));
+//            employee.setAge((Integer)row.get("age"));
+//            employee.setSalary((Integer)row.get("salary"));
+//            employees.add(employee);
+//        }
+        for (Employee empl : employees) {
+            System.out.println(empl);
+
+        }
+        return employees;
     }
 }
