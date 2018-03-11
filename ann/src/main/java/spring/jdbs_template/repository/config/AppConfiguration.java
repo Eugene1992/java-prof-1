@@ -3,14 +3,15 @@ package spring.jdbs_template.repository.config;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import spring.jdbs_template.repository.dao.IEmployeeDao;
 import spring.jdbs_template.repository.dao.ImplIEmployeeDao;
 
 import java.net.URISyntaxException;
 
-@org.springframework.context.annotation.Configuration
-public class Configuration {
+@Configuration
+public class AppConfiguration {
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
 

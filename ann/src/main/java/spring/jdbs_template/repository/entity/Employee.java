@@ -1,16 +1,19 @@
 package spring.jdbs_template.repository.entity;
 
-import lombok.*;
 
-
-@Data
-
-public class Employee {
+public class Employee extends AbstractEmployee{
     private String firstName;
     private String lastName;
     private int age;
     private int salary;
 
+    public Employee(Integer id, String firstName, String lastName, int age, int salary) {
+        super(id);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.salary = salary;
+    }
     public Employee(String firstName, String lastName, int age, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,7 +21,7 @@ public class Employee {
         this.salary = salary;
     }
 
-
+    public Employee(){}
 
     public String getFirstName() {
         return firstName;
@@ -50,6 +53,17 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                ", id=" + id +
+                '}';
     }
 }
 

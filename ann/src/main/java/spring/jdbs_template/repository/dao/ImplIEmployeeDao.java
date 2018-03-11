@@ -16,34 +16,39 @@ public class ImplIEmployeeDao implements IEmployeeDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
-
     @Override
     public Employee upsert(Employee employee) {
-        String query = "insert into employee values ( :firstname, :lastname, :age, :salary)";
+        String query = "insert into employee values (:id, :firstname, :lastname, :age, :salary)";
 
         Map<String, Object> map = new HashMap<>();
-       // map.put("id", employee.getId());
+        map.put("id", employee.getId());
         map.put("firstname", employee.getFirstName());
         map.put("lastname", employee.getLastName());
         map.put("age", employee.getAge());
         map.put("salary", employee.getSalary());
 
-       // jdbcTemplate.update(query,map);
+        jdbcTemplate.update(query,map);
 
-        jdbcTemplate.execute(query, map, (PreparedStatementCallback<Object>) PreparedStatement::executeUpdate);
+      //  jdbcTemplate.execute(query, map, (PreparedStatementCallback<Object>) PreparedStatement::executeUpdate);
         return  employee;
-
     }
 
     @Override
-    public Employee get(Integer integer) {
-        return null;
+    public Employee get(Integer id) {
+        String query="select * from employee where id = :id";
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", id);
+        Employee employee = jdbcTemplate.queryForObject(query, map, new EmployeeMapper());
+        return employee;
     }
 
-    @Override
-    public void delete(Integer integer) {
 
+    @Override
+    public void delete(Integer id) {
+        String query="delete from employee where id = :id";
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", id);
+        jdbcTemplate.update(query, map);
     }
 
     @Override
