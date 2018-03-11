@@ -59,17 +59,8 @@ public class ImplIEmployeeDao implements IEmployeeDao {
         String query = "select * from employee";
 
         List<Employee> employees = jdbcTemplate.query(query, new EmployeeMapper());
-//        for (Map row : rows) {
-//            Employee employee = new Employee();
-//            employee.setId((Integer) (row.get("id")));
-//            employee.setFirstName((String)row.get("firstname"));
-//            employee.setLastName((String)row.get("lastname"));
-//            employee.setAge((Integer)row.get("age"));
-//            employee.setSalary((Integer)row.get("salary"));
-//            employees.add(employee);
-//        }
-        for (Employee empl : employees) {
-            System.out.println(empl);
+        for (Employee eList : employees) {
+            System.out.println(eList);
 
         }
         return employees;
