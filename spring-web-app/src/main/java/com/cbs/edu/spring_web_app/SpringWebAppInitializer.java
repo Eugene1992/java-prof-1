@@ -2,6 +2,7 @@ package com.cbs.edu.spring_web_app;
 
 import com.cbs.edu.spring_web_app.config.AppConfig;
 import com.cbs.edu.spring_web_app.config.DatabaseConfig;
+import com.cbs.edu.spring_web_app.config.SecurityConfig;
 import com.cbs.edu.spring_web_app.config.WebMvcConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -15,7 +16,7 @@ public class SpringWebAppInitializer implements WebApplicationInitializer {
 
     public void onStartup(ServletContext container) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.register(AppConfig.class, DatabaseConfig.class, WebMvcConfig.class);
+        ctx.register(AppConfig.class, DatabaseConfig.class, WebMvcConfig.class, SecurityConfig.class);
         ctx.setServletContext(container);
 
         Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(ctx));

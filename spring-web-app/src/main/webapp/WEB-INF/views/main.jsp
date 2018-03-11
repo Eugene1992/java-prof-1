@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 !<html>
 <head>
     <meta charset="UTF-8">
@@ -15,6 +16,10 @@
 <body>
 <div class="container">
     <div class="row col-lg-8 col-lg-offset-2">
+        <sec:authorize access="isAuthenticated()">
+            <h1>Welcome, <sec:authentication property="principal.username" />!</h1>
+            <p><a class="btn btn-sm btn-danger" href="<c:url value="/logout" />" role="button">Logout</a></p>
+        </sec:authorize>
         <br>
         <div class="panel panel-primary">
             <div class="panel-heading">Employees CRUD</div>
