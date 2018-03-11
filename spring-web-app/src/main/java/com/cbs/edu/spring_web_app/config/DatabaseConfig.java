@@ -22,7 +22,7 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:db/db.properties")
-//@EnableJpaRepositories(basePackages = {"com.cbs.edu.spring_web_app.dao"})
+@EnableJpaRepositories(basePackages = {"com.cbs.edu.spring_web_app.dao"})
 public class DatabaseConfig {
 
     @Autowired private Environment environment;
@@ -49,7 +49,7 @@ public class DatabaseConfig {
         return new EmployeeDaoImpl(jdbcTemplate);
     }
 
-    /*@Bean
+    @Bean
     public LocalSessionFactoryBean sessionFactory() throws URISyntaxException {
         final LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
@@ -89,5 +89,5 @@ public class DatabaseConfig {
                 setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
             }
         };
-    }*/
+    }
 }

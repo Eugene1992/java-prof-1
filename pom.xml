@@ -19,6 +19,7 @@
         <module>vladvyazov</module>
         <module>junit</module>
         <module>spring</module>
+        <module>spring-web-app</module>
     </modules>
 
     <dependencies>
