@@ -1,8 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+!<html>
 <head>
-    <title>Hello world</title>
+    <meta charset="UTF-8">
+    <title>Employee CRUD</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -16,32 +16,33 @@
 <div class="container">
     <div class="row col-lg-8 col-lg-offset-2">
         <br>
-        <div class="panel panel-primary ">
-            <div class="panel-heading">Employee CRUD</div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Employees CRUD</div>
             <div class="panel-body">
-                <form class="form-horizontal" action="/hello" method="post">
+                <form class="form-horizontal" action="/main" method="post">
+                    <input type="hidden" class="form-control" id="id" name="id" value="${updEmployee.id}">
                     <div class="form-group">
                         <label class="control-label col-lg-2 col-lg-offset-2" for="first_name">First name:</label>
                         <div class="col-lg-5">
-                            <input type="text" class="form-control" id="first_name" placeholder="Enter first name" name="firstName">
+                            <input type="text" class="form-control" id="first_name" placeholder="Enter first name" name="firstName" value="${updEmployee.firstName}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-lg-2 col-lg-offset-2" for="last_name">Last name:</label>
                         <div class="col-lg-5">
-                            <input type="text" class="form-control" id="last_name" placeholder="Enter last name" name="lastName">
+                            <input type="text" class="form-control" id="last_name" placeholder="Enter last name" name="lastName" value="${updEmployee.lastName}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-lg-2 col-lg-offset-2" for="age">Age:</label>
                         <div class="col-lg-5">
-                            <input type="number" class="form-control" id="age" placeholder="Enter age" name="age">
+                            <input type="number" class="form-control" id="age" placeholder="Enter age" name="age" value="${updEmployee.age}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-lg-2 col-lg-offset-2" for="salary">Salary:</label>
                         <div class="col-lg-5">
-                            <input type="number" class="form-control" id="salary" placeholder="Enter salary" name="salary">
+                            <input type="number" class="form-control" id="salary" placeholder="Enter salary" name="salary" value="${updEmployee.salary}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -70,14 +71,18 @@
                             <td>${employee.age}</td>
                             <td>${employee.salary}</td>
                             <td>
-                                <button type="button" class="btn btn-info">
-                                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-                                </button>
+                                <a href="/main?action=update&id=${employee.id}">
+                                    <button type="button" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                                    </button>
+                                </a>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-danger">
-                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                </button>
+                                <a href="/main?action=delete&id=${employee.id}">
+                                    <button type="button" class="btn btn-danger">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                     </c:forEach>
