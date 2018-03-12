@@ -21,6 +21,7 @@ public class DataBaseConfig {
     public BasicDataSource dataSource(@Autowired Environment environment) throws URISyntaxException {
 
         BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setDriverClassName("org.postgresql.Driver");
         basicDataSource.setUrl(environment.getProperty("db.url"));
         basicDataSource.setUsername(environment.getProperty("db.username"));
         basicDataSource.setPassword(environment.getProperty("db.password"));

@@ -17,9 +17,9 @@
     <div class="row col-lg-8 col-lg-offset-2">
         <br>
         <div class="panel panel-primary ">
-            <div class="panel-heading">Employee CRUD</div>
+            <div class="panel-heading">Ann's employee CRUD</div>
             <div class="panel-body">
-                <form class="form-horizontal" action="/hello" method="post">
+                <form class="form-horizontal" action="/employee" method="post">
                     <div class="form-group">
                         <label class="control-label col-lg-2 col-lg-offset-2" for="first_name">First name:</label>
                         <div class="col-lg-5">
