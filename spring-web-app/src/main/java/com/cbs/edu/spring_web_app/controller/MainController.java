@@ -1,6 +1,8 @@
 package com.cbs.edu.spring_web_app.controller;
 
 import com.cbs.edu.spring_web_app.entity.Employee;
+import com.cbs.edu.spring_web_app.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,18 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
 public class MainController {
 
-    private List<Employee> employees = new ArrayList<>();
+    private EmployeeService employeeService;
 
-    {
-        employees.add(new Employee(0, "Tom", "Cat", 25, 2000));
-        employees.add(new Employee(1, "Sara", "Cat", 43, 45000));
-        employees.add(new Employee(2, "Jessy", "Cat", 17, 23000));
+    @Autowired
+    public MainController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
@@ -28,6 +28,7 @@ public class MainController {
                              @RequestParam(value = "id", required = false) Integer id,
                              @RequestParam(value = "action", required = false) String action) {
         modelAndView.setViewName("main");
+        final List<Employee> employees = employeeService.getAllEmployees();
         if (action != null && !action.isEmpty()) {
             if (action.equals("update")) {
                 modelAndView.addObject("updEmployee", employees.get(id));
@@ -35,7 +36,7 @@ public class MainController {
                 return modelAndView;
             }
             if (action.equals("delete")) {
-                employees.remove((int) id);
+                employeeService.deleteEmployee(id);
                 modelAndView.addObject("employees", employees);
             }
         }
@@ -54,11 +55,14 @@ public class MainController {
     ) {
         Integer id = employee.getId();
         if (id != null) {
-            employees.set(id, employee);
+            System.out.println("!");
+            employeeService.upsertEmployee(employee);
         } else {
-            employee.setId(employees.size());
-            employees.add(employee);
+            System.out.println("!!");
+            employeeService.upsertEmployee(employee);
         }
+        final List<Employee> employees = employeeService.getAllEmployees();
+        System.out.println(employees);
         modelAndView.addObject("employees", employees);
         return modelAndView;
     }
